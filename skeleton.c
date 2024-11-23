@@ -7,8 +7,7 @@
 /* HOLY DEFINING! */
 #define SKELE_ONE_PRINT(pieces) {						\
 	for (size_t i = 0; i < (sizeof(pieces) / sizeof(pieces[0])); i++) {	\
-		if (pieces[i] != NULL) printf("%s\n", pieces[i]);		\
-		else puts("Core dumped error");					\
+		puts(pieces[i] ? pieces[i] : "Core dumped error"); 			\
 	}									\
 }
 
@@ -27,8 +26,7 @@ void set_quote(char **quote, char *newText) {
 }
 
 bool is_playing(char *buff) {
-	if (buff[0] == 'Y' || buff[0] == 'y') return true;
-	return false;
+	return buff[0] == 'Y' || buff[0] == 'y';
 }
 
 void do_cls() {
@@ -75,14 +73,7 @@ void print_skeleton(int whichFrame) {
 	};
 	
 
-	switch (whichFrame) {
-		case 1:
-			SKELE_ONE_PRINT(alive);
-			break;
-		case 2:
-			SKELE_ONE_PRINT(dead);
-			break;
-	}
+	SKELE_ONE_PRINT(whichFrame == 1 ? alive : dead);
 }
 
 int main(void) {
