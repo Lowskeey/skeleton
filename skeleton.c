@@ -5,11 +5,11 @@
 #include <time.h>
 
 /* HOLY DEFINING! */
-#define SKELE_ONE_PRINT(pieces) {	\
+#define SKELE_ONE_PRINT(pieces) {						\
 	for (size_t i = 0; i < (sizeof(pieces) / sizeof(pieces[0])); i++) {	\
-		if (pieces[i] != NULL) printf("%s\n", pieces[i]);	\
-		else puts("Core dumped error");						\
-	}														\
+		if (pieces[i] != NULL) printf("%s\n", pieces[i]);		\
+		else puts("Core dumped error");					\
+	}									\
 }
 
 enum ACTIONS {
